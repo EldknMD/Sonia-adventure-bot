@@ -2,6 +2,7 @@ console.log('Test1');           // Sequential logging for every important depend
 console.log('Test2');
 console.log('Test3');
 const config = require('./config.json');
+const fs = require('fs');
 console.log('config.JSON file ready');
 console.log('Waiting...');
 const Discord = require('discord.js');
@@ -68,7 +69,7 @@ client.on("message", message => {
       command = command.slice(config.prefix.length);  
       try {
         let commandFile = require(`./commands/${command}.js`);
-        commandFile.run(client, message, Discord);
+        commandFile.run(client, message, Discord, fs);
       } catch (err) {
         console.log(err);
         client.users.get(config.ownerID).send(`${err}`); //Dm's you the error info. You can delete this if you want, but is always useful have an error log.
