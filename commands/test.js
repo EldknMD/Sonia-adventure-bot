@@ -5,7 +5,7 @@ saved = JSON.parse(path);
 console.log(saved.language);
 console.log(saved.gender);
 console.log(saved.origin);
-message.channel.send("Welcome "+ message.author.username +"! Select your language, please: English or spanish?")
+message.channel.send("Hey, "+ message.author.username +"! Select your language, please: English or spanish?")
 .then(() => {
     message.channel.awaitMessages(response => response.content, {
       max: 1,
@@ -28,6 +28,8 @@ message.channel.send("Welcome "+ message.author.username +"! Select your languag
         newSaved= JSON.stringify(saved)
         fs.writeFile("./temp/jsonsavebasefile.json",newSaved, function(err) {
             if (err) return console.log(err);
+        let adventure = require(`../adventure/2ndQuestion.js`);
+          adventure.run(client, message, Discord, fs);
         });
         break;
         case "Ing":
@@ -45,7 +47,8 @@ message.channel.send("Welcome "+ message.author.username +"! Select your languag
         fs.writeFile("./temp/jsonsavebasefile.json",newSaved, function(err) {
             if (err) return console.log(err);
         });
-
+        let adventure = require(`./adventure/2ndQuestion.js`);
+          adventure.run(client, message, Discord, fs);
 
         break;
         default:
