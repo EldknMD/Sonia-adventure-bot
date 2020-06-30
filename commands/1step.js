@@ -24,7 +24,10 @@ exports.run = (client, message, Discord, fs) => {
             case "Spanish":
             message.channel.send(`¡Muchas muchas gracias!`);
             var language = "spanish";
-            savedbase.language = language
+            JSON.stringify=(language);
+            fs.writeFile= message.author.username+".json", language, function(err) {
+              if (err) return console.log(err);
+          };
             break;
 
             case "Ing":
