@@ -13,7 +13,6 @@ saved.inputtype = input
   fs.writeFile("./saves/" + message-author.username +".json",newSaved, function(err) {
     if (err) return console.log(err)
   });
-}
 };
 message.channel.send("Hey, "+ message.author.username +"! Select your language, please: English or spanish?")
 .then(() => {
@@ -46,9 +45,9 @@ message.channel.send("Hey, "+ message.author.username +"! Select your language, 
         case "Ingles":
         message.channel.send(`Thank you so much! `);
         var lang = "english";
-        saveandnext(language, lang)
-        let adventure = require(`./adventure/2ndQuestion.js`);
-          adventure.run(client, message, Discord, fs);
+        saveandnext(language, lang);
+        let adventureeng = require(`./adventure/2ndQuestion.js`);
+          adventureeng.run(client, message, Discord, fs);
 
         break;
         default:
@@ -57,4 +56,5 @@ message.channel.send("Hey, "+ message.author.username +"! Select your language, 
       .catch(() => {
         message.channel.send("Out of time. Try again.");
       });
-  });
+  })
+};
