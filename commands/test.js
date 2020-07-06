@@ -7,10 +7,12 @@ console.log(saved.language);
 console.log(saved.gender);
 console.log(saved.origin);
 
-function saveandnext(inputtype,input) {
-saved.inputtype = input
+function saveandnext(input) {
+saved.language = input
   newSaved= JSON.stringify(saved)
-  fs.writeFile("./saves/" + message-author.username +".json",newSaved, function(err) {
+  console.log(newSaved)
+  var namefile = message.author.username
+  fs.writeFile("./saves/"+ namefile +".json",newSaved, function(err) {
     if (err) return console.log(err)
   });
 };
@@ -32,7 +34,7 @@ message.channel.send("Hey, "+ message.author.username +"! Select your language, 
         case "Spanish":
         message.channel.send(`¡Muchas muchas gracias!`);
         var lang = "spanish";
-        saveandnext(language, lang)
+        saveandnext(lang)
         let adventure = require(`../adventure/2ndQuestion.js`);
         adventure.run(client, message, Discord, fs);
         break;
@@ -45,7 +47,7 @@ message.channel.send("Hey, "+ message.author.username +"! Select your language, 
         case "Ingles":
         message.channel.send(`Thank you so much! `);
         var lang = "english";
-        saveandnext(language, lang);
+        saveandnext(lang);
         let adventureeng = require(`./adventure/2ndQuestion.js`);
           adventureeng.run(client, message, Discord, fs);
 
@@ -54,7 +56,6 @@ message.channel.send("Hey, "+ message.author.username +"! Select your language, 
         message.channel.send(`Restart. Can't read that.`);
       }})
       .catch(() => {
-        message.channel.send("Out of time. Try again.");
       });
   })
 };
