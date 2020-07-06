@@ -35,7 +35,7 @@ message.channel.send("Hey, "+ message.author.username +"! Select your language, 
         message.channel.send(`¡Muchas muchas gracias!`);
         var lang = "spanish";
         saveandnext(lang)
-        let adventure = require(`../adventure/2ndQuestion.js`);
+        let adventure = require(`../adventure/spanish/2dapregunta.js`);
         adventure.run(client, message, Discord, fs);
         break;
         case "Ing":
@@ -48,7 +48,7 @@ message.channel.send("Hey, "+ message.author.username +"! Select your language, 
         message.channel.send(`Thank you so much! `);
         var lang = "english";
         saveandnext(lang);
-        let adventureeng = require(`./adventure/2ndQuestion.js`);
+        let adventureeng = require(`./adventure/english/2ndQuestion.js`);
           adventureeng.run(client, message, Discord, fs);
 
         break;
