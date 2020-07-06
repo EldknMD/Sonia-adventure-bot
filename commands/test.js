@@ -1,5 +1,5 @@
 exports.run = (client, message, Discord, fs) => {
-var path = fs.readFileSync("./temp/jsonsavebasefile.json", "utf8");
+var path = fs.readFileSync("./saves/jsonsavebasefile.json", "utf8");
 saved = JSON.parse(path);
 
 console.log(path);
