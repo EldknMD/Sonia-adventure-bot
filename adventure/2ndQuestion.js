@@ -5,6 +5,16 @@ exports.run = (client, message, Discord, fs) => {
     console.log(saved.language);
     console.log(saved.gender);
     console.log(saved.origin);
+
+    function saveandnext(input) {
+        saved.origin = input
+          newSaved= JSON.stringify(saved)
+          console.log(newSaved)
+          var namefile = message.author.username
+          fs.writeFile("./saves/"+ namefile +".json",newSaved, function(err) {
+            if (err) return console.log(err)
+          });
+        };
     message.channel.send("Very well, "+ message.author.username +" Where do you came from?")
     .then(() => {
         message.channel.awaitMessages(response => response.content, {
